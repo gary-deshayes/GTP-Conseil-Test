@@ -1,0 +1,26 @@
+{{ form_start(form) }}
+{% if form.vars.errors|length > 0 %}
+	<div class="alert alert-danger">
+		{% for error in form.vars.errors %}
+			<p>{{error.message}}</p>
+		{% endfor %}
+	</div>
+{% endif %}
+<div class="row">
+	<div class="col-lg-12">{{ form_row(form.libelle) }}</div>
+	<div class="col-lg-6">
+		<div class="form-group">
+			<label for="tache_heureDebut">Heure début</label>
+			<input id="tache_heureDebut" class="form-control" type="text" name="tache[heure_debut]" value="{{ tache ? tache.getHeureDebut | date('Y/m/d H:i') : ""}}">
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="form-group">
+
+			<label for="tache_heureFin">Heure fin</label>
+			<input id="tache_heureFin" class="form-control" type="text" name="tache[heure_fin]" value="{{ tache ? tache.getHeureFin | date('Y/m/d H:i') : ""}}">
+		</div>
+	</div>
+</div>
+<button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+{% if form.vars.valid == false %}
+	<div class="row pb-1">{{ form_errors(form)}}</div>
+{% endif %}
+<div class="row">
+	<div class="col-lg-6">{{ form_row(form.nom) }}</div>
+	<div class="col-lg-6">{{ form_row(form.prenom) }}</div>
+</div>
+<div class="row">
+	<div class="col-lg-4">{{ form_row(form.email) }}</div>
+	<div class="col-lg-4">{{ form_row(form.password_clear) }}</div>
+	<div class="col-lg-4">{{ form_row(form.roles) }}</div>
+</div>
+<button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

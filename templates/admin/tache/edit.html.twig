@@ -1,0 +1,26 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modification d'une tâche
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Modification d'une tâche
+			{% if tache.etat == 0 %}
+				<span class="badge badge-danger">En attente</span>
+			{% endif %}
+			{% if tache.etat == 1 %}
+				<span class="badge badge-warning">En cours</span>
+			{% endif %}
+			{% if tache.etat == 2 %}
+				<span class="badge badge-success">Finie</span>
+			{% endif %}
+		</h1>
+
+		{{ include('admin/tache/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+
+		<a class="btn btn-primary" href="{{ path('admin_tache_index') }}">Retour à la liste</a>
+
+		{{ include('admin/tache/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

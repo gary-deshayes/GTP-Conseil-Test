@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="{{ path('admin') }}">GTP Conseil Admin</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarText">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item {{ app.request.get('_route') == "admin" ? "active": "" }}">
+				<a class="nav-link" href="{{ path('admin') }}">Dashboard
+				</a>
+			</li>
+			<li class="nav-item {{ app.request.get('_route') starts with "admin_user" ? "active": "" }}">
+				<a class="nav-link" href="{{ path('admin_user_index') }}">Utilisateurs</a>
+			</li>
+			<li class="nav-item {{ app.request.get('_route') starts with "admin_tache" ? "active": "" }}">
+				<a class="nav-link" href="{{ path('admin_tache_index') }}">Tâches</a>
+			</li>
+		</ul>
+		<span class="navbar-text">
+			<a class="btn btn-danger"  href="{{ path('app_logout') }}">Déconnexion</a>
+		</span>
+	</div>
+</nav>

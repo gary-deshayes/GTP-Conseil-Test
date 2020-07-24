@@ -1,0 +1,39 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Tableau de bord de l'administration
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Tableau de bord</h1>
+		<div class="row jumbotron mt-1">
+			<div class="card col-lg-3">
+				<div
+					class="card-body">
+					<h6 class="card-title">Employés :</h6>
+					<p class="card-text blue-text">
+						<span class="ml-2">{{nbEmployes}}</span>
+					</p>
+				</div>
+			</div>
+			<div class="card col-lg-3 ml-3">
+				<div
+					class="card-body">
+					<h6 class="card-title">Tâches en attente :</h6>
+					<p class="card-text danger-text">
+						<span class="ml-2">{{tacheEnAttente}}</span>
+					</p>
+				</div>
+			</div>
+			<div class="card col-lg-3 ml-3">
+				<div
+					class="card-body">
+					<h6 class="card-title">Tâches en cours :</h6>
+					<p class="card-text warning-text">
+						<span class="ml-2">{{tacheEnCours}}</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

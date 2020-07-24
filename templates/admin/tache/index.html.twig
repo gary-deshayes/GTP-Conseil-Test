@@ -1,0 +1,57 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des tâches
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Liste des tâches</h1>
+		<a class="btn btn-primary mb-1" href="{{ path('admin_tache_new') }}">Créer une tache</a>
+		<table class="table table-striped" id="table_tache">
+			<thead>
+				<tr>
+					<th>Libelle</th>
+					<th>Heure début</th>
+					<th>Heure fin</th>
+					<th>Etat</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for tache in taches %}
+					<tr data-href="{{ path('admin_tache_edit', {'id': tache.id}) }}" class="clickable-link">
+						<td>{{ tache.libelle }}</td>
+						<td>{{ tache.heureDebut ? tache.heureDebut|date('d/m/Y \\à H \\h i ') : '' }}</td>
+						<td>{{ tache.heureFin ? tache.heureFin|date('d/m/Y \\à H \\h i ') : '' }}</td>
+						<td>
+							{% if tache.etat == 0 %}
+								<span class="badge badge-danger">En attente</span>
+							{% endif %}
+							{% if tache.etat == 1 %}
+								<span class="badge badge-warning">En cours</span>
+							{% endif %}
+							{% if tache.etat == 2 %}
+								<span class="badge badge-success">Finie</span>
+							{% endif %}
+						</td>
+						<td>
+							{% include "admin/tache/_delete_form.html.twig" %}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">Aucune tâche trouvée</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+{% endblock %}

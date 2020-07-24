@@ -1,0 +1,14 @@
+.clickable-link {
+    cursor: pointer;
+}
+.clickable-link:hover{
+    background-color: #cccccc !important;
+}
+
+.danger-text {
+    color: #DC3545;
+}
+
+.warning-text {
+    color: #FFC107;
+}

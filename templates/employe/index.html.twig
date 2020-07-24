@@ -1,0 +1,66 @@
+{% extends 'employe/base.html.twig' %}
+
+{% block title %}Tâches restantes
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+{% endblock %}
+
+{% block body %}
+	<div class="container mb-5">
+		<h1>Tâches restantes :
+		</h1>
+		{% if tacheActuelle != null %}
+			<div class="alert alert-warning">
+				<h2>Tâche en cours :</h2>
+				<div class="row ml-2">
+					<strong>{{tacheActuelle.libelle}}</strong>
+					<div class="badge badge-info">Début :
+						{{ tacheActuelle.heureDebut|date('d/m/Y \\à H \\h i ') }}</div>
+					<div class="badge badge-info ml-2">Fin :
+						{{ tacheActuelle.heureFin|date('d/m/Y \\à H \\h i ') }}</div>
+				</div>
+				<form method="post" action="{{ path('employe_finir_tache', {'tache': tacheActuelle.id}) }}">
+					<input type="hidden" name="_method" value="POST">
+					<input type="hidden" name="_token" value="{{ csrf_token('finir_tache' ~ tacheActuelle.id) }}">
+					<button class="btn btn-success">Finir</button>
+				</form>
+			</div>
+		{% endif %}
+		<table class="table table-striped " id="table_tache">
+			<thead>
+				<tr>
+					<th>Libelle</th>
+					<th>Heure début</th>
+					<th>Heure fin</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for tache in taches %}
+					<tr data-href="{{ path('admin_tache_edit', {'id': tache.id}) }}" class="clickable-link">
+						<td>{{ tache.libelle }}</td>
+						<td>{{ tache.heureDebut ? tache.heureDebut|date('d/m/Y \\à H \\h i ') : '' }}</td>
+						<td>{{ tache.heureFin ? tache.heureFin|date('d/m/Y \\à H \\h i ') : '' }}</td>
+						<td>
+							<form method="post" action="{{ path('employe_prendre_tache', {'tache': tache.id}) }}">
+								<input type="hidden" name="_method" value="POST">
+								<input type="hidden" name="_token" value="{{ csrf_token('prendre_tache' ~ tache.id) }}">
+								<button class="btn btn-success">Prendre</button>
+							</form>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">Aucune tâche trouvée</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+{% endblock %}

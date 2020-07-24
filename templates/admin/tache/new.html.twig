@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Nouvelle tâche{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1>Création d'une nouvelle tâche</h1>
+
+    {{ include('admin/tache/_form.html.twig') }}
+
+    <a class="btn btn-primary" href="{{ path('admin_tache_index') }}">Retour à la liste</a>
+    </div>
+{% endblock %}

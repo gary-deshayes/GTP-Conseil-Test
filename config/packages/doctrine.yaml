@@ -16,3 +16,7 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+        dql: 
+            datetime_functions:
+                TimestampDiff: DoctrineExtensions\Query\Mysql\TimestampDiff
+                Date: DoctrineExtensions\Query\Mysql\Date
