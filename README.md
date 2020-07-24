@@ -17,13 +17,13 @@ Lancer la commance 'npm install' avec l'outil NPM
 
 ## Lancer le projet
 
-###Initialiser la base de données 
+### Initialiser la base de données 
 Lancer la commande php bin/console 'doctrine:database:create' ou d:d:c pour créer la base de données
 
-###Construire le schéma de la base de données grâce aux migrations
+### Construire le schéma de la base de données grâce aux migrations
 Lancer la commance php bin/console 'doctrine:migrations:migrate' ou d:m :m
 
-###Initialiser les fausses données grâce aux fixtures 
+### Initialiser les fausses données grâce aux fixtures 
 Lancer la commance 'php bin/console doctrine:fixtures:load' ou d:f:l et accepter avec 'yes'
 
 Suite à cela votre base de données sera prête
