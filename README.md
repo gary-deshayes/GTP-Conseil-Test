@@ -9,7 +9,7 @@ Projet sous Symfony 5.1
 - Composer (dépendance PHP)
 - NPM (dépendance JS)
 
-##Récupérer les dépendances PHP
+## Récupérer les dépendances PHP
 Lancer la commande 'composer install' avec l'outil composer
 
 ## Récupérer les dépendance JS
