@@ -3,11 +3,11 @@
 Projet sous Symfony 5.1
 
 ## Prérequis du projet
-PHP 7.2.5 minimum
-MySQL 5.7
-/!\ Internet pour les CDNs
-Composer (dépendance PHP)
-NPM (dépendance JS)
+- PHP 7.2.5 minimum
+- MySQL 5.7
+- /!\ Internet pour les CDNs
+- Composer (dépendance PHP)
+- NPM (dépendance JS)
 
 ##Récupérer les dépendances PHP
 Lancer la commande 'composer install' avec l'outil composer
