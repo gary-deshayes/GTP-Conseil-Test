@@ -28,6 +28,10 @@ Lancer la commance 'php bin/console doctrine:fixtures:load' ou d:f:l et accepter
 
 Suite à cela votre base de données sera prête
 
+### Comment lancer le projet en dehors d'un hébergement classique style apache
+
+Il vous faudra installer le petit logiciel de Symfony : https://symfony.com/download et lancer la commande 'symfony server:start' qui lancera le projet sur l'url 127.0.0.1:8000
+
 ## Connexion aux interfaces
 
 Il y a plusieurs comptes auto-générés ainsi que 50 tâches:
